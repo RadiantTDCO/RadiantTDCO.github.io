@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TokonTo - Language Selection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3eae1;
+      color: #5e4a3d;
+      overflow: hidden;
+    }
+    /* Modal Overlay */
+    #language-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      animation: fadeIn 0.8s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Button hover animations */
+    .lang-btn {
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .lang-btn:hover {
+      transform: scale(1.05);
+      background-color: #e2d8ce;
+    }
+    .flag-img {
+      width: 32px;
+      height: auto;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Selection Modal -->
+  <div id="language-popup">
+    <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-6">Select Language</h2>
+      <div class="flex justify-center space-x-6">
+        <button id="english-btn" class="lang-btn flex items-center space-x-2 bg-gray-200 p-3 rounded-lg focus:outline-none">
+          <img src="https://flagcdn.com/48x36/us.png" alt="English" class="flag-img">
+          <span class="text-lg font-medium">English</span>
+        </button>
+        <button id="thai-btn" class="lang-btn flex items-center space-x-2 bg-gray-200 p-3 rounded-lg focus:outline-none">
+          <img src="https://flagcdn.com/48x36/th.png" alt="Thai" class="flag-img">
+          <span class="text-lg font-medium">Thai</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content (Hidden until language selection) -->
+  <div id="main-content" class="opacity-0">
+    <!-- Optional default content -->
+  </div>
+
+  <script>
+    // Redirect to subfolder when a language is selected
+    document.getElementById('english-btn').addEventListener('click', function(){
+      window.location.href = "english/main.html";
+    });
+    document.getElementById('thai-btn').addEventListener('click', function(){
+      window.location.href = "thai/main.html";
+    });
+  </script>
+</body>
+</html>
