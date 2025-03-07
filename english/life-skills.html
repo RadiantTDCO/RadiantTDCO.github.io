@@ -31,9 +31,9 @@
       display: inline-block;
     }
     .logo img {
-      max-width: 150px;
+      max-width: 150px; /* Ensure it doesn't take too much space */
       height: auto;
-      border-radius: 15px;
+      border-radius: 15px; /* Curved edges */
     }
     /* Hamburger Menu with Transformation into an X */
     .menu-btn {
@@ -42,7 +42,6 @@
       position: relative;
       cursor: pointer;
       z-index: 1100;
-      /* Using flex layout is optional if we position bars absolutely */
     }
     .menu-btn div {
       position: absolute;
@@ -113,7 +112,7 @@
     }
     /* Hero Section */
     .hero {
-      background: url("file:///C:/Tate/KM/main-backgroud.png") center/cover no-repeat;
+      background: url("main-backgroud.png") center/cover no-repeat;
       position: relative;
       padding: 100px 20px;
       text-align: center;
@@ -122,9 +121,9 @@
     .hero::after {
       content: "";
       position: absolute;
-      top: 0;
+      top: 0; 
       left: 0;
-      width: 100%;
+      width: 100%; 
       height: 100%;
       background: rgba(0,0,0,0.4);
       pointer-events: none;
@@ -220,7 +219,7 @@
   <header>
     <div class="logo">
       <a href="main.html">
-        <img src="file:///https://github.com/RadiantTDCO/RadiantTDCO.github.io/logo.png"/>
+        <img src="logo.png" alt="Logo" />
       </a>
     </div>
     <div class="menu-btn" onclick="toggleMenu()">
@@ -250,7 +249,7 @@
     </div>
   </section>
 
-  <!-- Article Content -->
+  <!-- Article Content: All Information from the Word Document -->
   <div class="article-container fade-in">
     <h1>Life Skills Learned</h1>
     
@@ -359,8 +358,10 @@
   
   <script>
     function toggleMenu() {
-      document.querySelector('.menu-btn').classList.toggle('open');
-      document.getElementById('side-menu').classList.toggle('open');
+      const menuBtn = document.querySelector('.menu-btn');
+      const sideMenu = document.getElementById('side-menu');
+      menuBtn.classList.toggle('open');
+      sideMenu.classList.toggle('open');
     }
   </script>
 </body>
