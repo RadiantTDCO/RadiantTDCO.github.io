@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TokonTo - Project Challenges &amp; Solutions (English)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f3eae1 0%, #e6d3c3 100%);
+      color: #5e4a3d;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 35px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .menu-btn div {
+      width: 100%;
+      height: 4px;
+      background: #7a5c48;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    .menu-btn.open div:nth-child(1) { transform: rotate(-45deg) translate(-8px, 8px); }
+    .menu-btn.open div:nth-child(2) { opacity: 0; }
+    .menu-btn.open div:nth-child(3) { transform: rotate(45deg) translate(-8px, -8px); }
+    nav {
+      position: fixed;
+      top: 0;
+      right: -16.67%;
+      width: 16.67%;
+      height: 100vh;
+      background: rgba(255,250,245,0.7);
+      backdrop-filter: blur(10px);
+      transition: right 0.5s;
+      z-index: 900;
+    }
+    nav.open { right: 0; }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    nav ul li {
+      margin: 20px 0;
+      font-size: 1.2rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #7a5c48;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #5e4a3d; }
+    .container {
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+      backdrop-filter: blur(8px);
+    }
+    h1 { text-align: center; font-size: 3rem; margin-bottom: 40px; border-bottom: 3px solid #7a5c48; padding-bottom: 10px; }
+    h2 { font-size: 2rem; margin-top: 40px; margin-bottom: 20px; border-bottom: 2px solid #7a5c48; padding-bottom: 5px; }
+    p { margin-bottom: 20px; line-height: 1.8; text-align: justify; }
+    .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; animation-delay: 0.5s; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section:hover { background-color: rgba(255,255,255,0.95); transition: background-color 0.3s ease; }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="menu-btn" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+  
+  <!-- Side Navigation -->
+  <nav id="side-menu">
+    <ul>
+      <li><a href="main.html">Main</a></li>
+      <li><a href="life-skills.html">Life Skills</a></li>
+      <li><a href="technical-skills.html">Technical Skills</a></li>
+      <li><a href="timeline.html">Timeline</a></li>
+      <li><a href="challenges.html">Challenges</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Page Content -->
+  <div class="container fade-in">
+    <h1>Project Challenges &amp; Solutions</h1>
+    
+    <!-- Section 1: Technical Challenges -->
+    <section>
+      <h2>1. Technical Challenges</h2>
+      <p>Facing technical challenges throughout my project was inevitable and deeply impactful. The migration from MongoDB to MariaDB represented one of my most significant hurdles, filled with complexity and anxiety. Initially, the thought of shifting databases entirely seemed overwhelming, filled with fears of data loss, compatibility issues, and increased workload. Yet, confronting this challenge head-on profoundly deepened my technical skills and emotional resilience.</p>
+      <p>Security concerns presented another intense challenge. Learning about vulnerabilities, SQL injection prevention, and secure authentication was emotionally taxing, filled with stress and urgency. Yet, each security improvement brought immense relief and satisfaction, reinforcing the importance of vigilance and careful implementation. Mastering these concepts became not only a technical achievement but a deeply personal commitment to user trust and data protection.</p>
+      <p>Performance optimization posed continuous challenges, often causing frustration and doubt. Yet, meticulously refining SQL queries, implementing caching, and optimizing frontend loads resulted in tangible improvements that emotionally validated my efforts. Each performance breakthrough provided reassurance, proving that persistent effort and careful attention to detail genuinely matter.</p>
+    </section>
+    
+    <!-- Section 2: Personal Challenges -->
+    <section>
+      <h2>2. Personal Challenges</h2>
+      <p>Beyond technical issues, I faced significant personal challenges. Limited computer access significantly tested my patience and adaptability. Initially, this restriction was frustrating, causing deep anxiety about achieving my goals. Yet, it gradually became my greatest motivator, forcing me to plan meticulously and optimize every available moment.</p>
+      <p>Learning PHP and SQL entirely on my own was emotionally exhausting. The learning curve was steep, filled with frequent frustrations and self-doubt. Yet, each new understanding and successful implementation profoundly boosted my confidence, turning initial anxiety into genuine passion and mastery.</p>
+      <p>Balancing schoolwork and the project felt overwhelming at times, testing my time management skills to their limits. Each conflict or competing demand caused emotional stress, yet I learned to adapt, prioritize effectively, and manage my responsibilities efficiently. This taught me invaluable lessons in discipline, balance, and emotional resilience.</p>
+    </section>
+    
+    <!-- Section 3: Solutions Implemented -->
+    <section>
+      <h2>3. Solutions Implemented</h2>
+      <p>To overcome these challenges, I developed creative and effective solutions. Coding logic on paper before testing on a computer became an essential strategy, significantly improving my efficiency and reducing wasted time. This approach provided emotional relief, minimizing frustration and anxiety during limited computer access.</p>
+      <p>Using GitHub effectively allowed me to track progress, prevent data loss, and maintain clear version control. This solution offered emotional reassurance, removing the fear of losing work and increasing my confidence significantly.</p>
+      <p>Studying online tutorials, official documentation, and additional resources accelerated my learning process. Each resource explored provided emotional satisfaction and clarity, progressively reducing anxiety and enhancing my technical proficiency.</p>
+    </section>
+    
+    <!-- Section 4: Final Thoughts -->
+    <section>
+      <h2>Final Thoughts</h2>
+      <p>This project was not just a technical endeavor—it was an intense, transformative journey filled with profound emotional and personal growth. Facing technical and personal challenges taught me resilience, patience, discipline, and creativity. Each challenge overcame, each solution implemented, profoundly shaped my identity, capabilities, and confidence. Ultimately, this project was about much more than coding—it was about learning to navigate challenges, overcome adversity, and grow deeply as both a developer and an individual.</p>
+    </section>
+  </div>
+  
+  <script>
+    function toggleMenu() {
+      document.querySelector('.menu-btn').classList.toggle('open');
+      document.getElementById('side-menu').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
