@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TokonTo - Project Timeline (English)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f3eae1 0%, #e6d3c3 100%);
+      color: #5e4a3d;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 35px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .menu-btn div {
+      width: 100%;
+      height: 4px;
+      background: #7a5c48;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    .menu-btn.open div:nth-child(1) { transform: rotate(-45deg) translate(-8px, 8px); }
+    .menu-btn.open div:nth-child(2) { opacity: 0; }
+    .menu-btn.open div:nth-child(3) { transform: rotate(45deg) translate(-8px, -8px); }
+    nav {
+      position: fixed;
+      top: 0;
+      right: -16.67%;
+      width: 16.67%;
+      height: 100vh;
+      background: rgba(255,250,245,0.7);
+      backdrop-filter: blur(10px);
+      transition: right 0.5s;
+      z-index: 900;
+    }
+    nav.open { right: 0; }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    nav ul li {
+      margin: 20px 0;
+      font-size: 1.2rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #7a5c48;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #5e4a3d; }
+    .container {
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+      backdrop-filter: blur(8px);
+    }
+    h1 { text-align: center; font-size: 3rem; margin-bottom: 40px; border-bottom: 3px solid #7a5c48; padding-bottom: 10px; }
+    h2 { font-size: 2rem; margin-top: 40px; margin-bottom: 20px; border-bottom: 2px solid #7a5c48; padding-bottom: 5px; }
+    p { margin-bottom: 20px; line-height: 1.8; text-align: justify; }
+    .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; animation-delay: 0.5s; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section:hover { background-color: rgba(255,255,255,0.95); transition: background-color 0.3s ease; }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="menu-btn" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+  
+  <!-- Side Navigation -->
+  <nav id="side-menu">
+    <ul>
+      <li><a href="main.html">Main</a></li>
+      <li><a href="life-skills.html">Life Skills</a></li>
+      <li><a href="technical-skills.html">Technical Skills</a></li>
+      <li><a href="timeline.html">Timeline</a></li>
+      <li><a href="challenges.html">Challenges</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Page Content -->
+  <div class="container fade-in">
+    <h1>Project Timeline</h1>
+    
+    <!-- Section 1: Initial Research & Planning -->
+    <section>
+      <h2>1. Initial Research &amp; Planning (November - December)</h2>
+      <p>The initial research and planning phase was foundational, profoundly shaping the project's direction and my understanding of its real-world impact. This phase was filled with excitement, curiosity, and an earnest desire to solve genuine problems faced by the nurse's office. Initially, the scope seemed daunting—I had to deeply understand a workflow entirely unfamiliar to me.</p>
+      <p>Engaging directly with nurses, teachers, and students through interviews was both enlightening and emotionally impactful. Each conversation revealed frustrations, inefficiencies, and pain points that inspired empathy and fueled my motivation to create a meaningful solution. The emotional weight of understanding their daily struggles motivated me profoundly, reinforcing my commitment to the project.</p>
+      <p>Comparing technological options was intellectually challenging and emotionally taxing. Choosing between Django and PHP, MongoDB and MariaDB required careful analysis and difficult decisions. Initially, this caused anxiety, uncertainty, and doubt about whether I was making the right choices. Yet, each comparison deepened my critical thinking and analytical abilities, empowering me with clarity and confidence as I moved forward.</p>
+      <p>The meticulous planning stage provided emotional reassurance, converting abstract ideas into tangible, achievable milestones. Creating detailed roadmaps and timelines was intensely satisfying, reducing anxiety and clarifying my path forward. Each completed planning task boosted my confidence, preparing me emotionally and intellectually for the challenges ahead.</p>
+      <p>Ultimately, this initial phase profoundly shaped my project's trajectory and my personal growth. The deep emotional insights gained through interviews, careful technology selection, and detailed planning were foundational. They transformed initial uncertainty into clarity, confusion into conviction, and abstract ideas into a concrete, actionable plan. The emotional and intellectual growth experienced during this period set the stage for all future successes and learnings.</p>
+    </section>
+    
+    <!-- Section 2: Development Phase -->
+    <section>
+      <h2>2. Development Phase (December - January)</h2>
+      <p>Entering the development phase was exhilarating yet intimidating. The transition from planning to actual coding marked a significant shift in my project's journey. Initially, building prototypes using Django and MongoDB was filled with excitement, discovery, and intense learning experiences. Each line of code written felt like an emotional victory, symbolizing tangible progress.</p>
+      <p>However, early prototyping revealed limitations and practical challenges. Realizing that Django and MongoDB wouldn't fully meet my project's needs brought anxiety and doubt, forcing me into another difficult decision. Pivoting to PHP and MariaDB wasn't easy—it meant discarding significant work and venturing into unfamiliar territory once again.</p>
+      <p>Adopting PHP and MariaDB required a fresh wave of learning, accompanied by frustration and occasional self-doubt. Yet, as I gained proficiency, each successful implementation boosted my emotional resilience, reigniting confidence and enthusiasm. Seeing the backend gradually take shape with robust database integration provided profound satisfaction and validated my decision.</p>
+      <p>Designing the UI/UX became another emotional journey. Creating intuitive, user-friendly interfaces demanded empathy, creativity, and meticulous attention to detail. Early designs faced criticism and required extensive revisions, initially causing emotional discouragement. However, each refinement was deeply rewarding, enhancing usability and increasing my pride in the final product.</p>
+      <p>Implementing core features—login systems, patient records, and efficient data retrieval—was technically demanding yet emotionally fulfilling. Each functional feature represented meaningful progress and reinforced my motivation. Completing these core functionalities transformed my initial anxiety into powerful emotional reassurance and pride.</p>
+      <p>Ultimately, the development phase wasn't merely technical—it was a profound emotional journey. Each challenge faced and overcome enriched my personal growth, resilience, and confidence. This period taught me invaluable lessons about persistence, adaptability, and the emotional power of incremental progress, profoundly shaping my project's outcome and my personal journey.</p>
+    </section>
+    
+    <!-- Section 3: Testing & Refinement -->
+    <section>
+      <h2>3. Testing &amp; Refinement (January - February)</h2>
+      <p>The testing and refinement phase was both rewarding and emotionally demanding. Introducing my project to real users—nurses, teachers, and students—was nerve-wracking, filled with anticipation and anxiety. I feared discovering flaws or shortcomings that might undermine months of dedicated work.</p>
+      <p>Early user feedback sessions were challenging yet illuminating. Witnessing users encounter unexpected issues or struggle with specific functionalities initially felt disheartening, triggering feelings of inadequacy. Yet, I quickly recognized the immense value in these sessions. User feedback became a guiding light, revealing critical improvements necessary for real-world usability.</p>
+      <p>Addressing security issues uncovered during testing was particularly intense. Discovering vulnerabilities filled me with a sense of urgency and responsibility. Resolving these security gaps required rigorous testing, careful problem-solving, and emotional resilience. Each issue resolved brought immense relief and pride, strengthening my confidence and reaffirming my commitment to delivering a secure, reliable system.</p>
+      <p>Optimizing database queries and system performance presented another emotional and technical challenge. Slow responses and inefficiencies initially frustrated and overwhelmed me. Yet, each performance improvement provided emotional satisfaction, making my system smoother, faster, and more reliable. Witnessing user satisfaction as performance improved reinforced my dedication and emotional investment profoundly.</p>
+      <p>Integrating speech-to-text functionality added another meaningful layer to the project. Witnessing nurses efficiently using voice input for patient records was emotionally moving and deeply validating. Their gratitude and enthusiasm confirmed the practical impact of my efforts, transforming technical challenges into deeply fulfilling successes.</p>
+      <p>Ultimately, the testing and refinement phase wasn't just about technical improvements—it was an emotional journey of validation, resilience, and growth. Each interaction with users, every resolved issue, and every optimized feature reinforced my emotional strength and confidence, profoundly shaping my identity as a thoughtful, resilient, and capable developer.</p>
+    </section>
+    
+    <!-- Section 4: Final Deployment & Training -->
+    <section>
+      <h2>4. Final Deployment &amp; Training (February - March)</h2>
+      <p>The final deployment and training phase marked the culmination of months of dedicated effort, filled with anticipation, excitement, and profound emotional fulfillment. Deploying my system into a real-world environment was deeply rewarding yet intensely stressful. I felt an enormous responsibility, knowing that real users depended on my work to enhance their daily tasks.</p>
+      <p>Training nurses to use the system was a remarkable experience. Initially, I was nervous—concerned about how smoothly they'd adopt the technology. My fears quickly turned to joy as I witnessed nurses enthusiastically embrace the system. Their excitement, gratitude, and rapid learning deeply validated my efforts, providing a powerful emotional reward that surpassed all previous expectations.</p>
+      <p>Ensuring automatic backups, security patches, and system stability was emotionally demanding, highlighting the heavy responsibility I carried. Each successful deployment step and robust security measure implemented brought relief and a profound sense of accomplishment. Witnessing my system functioning smoothly in real-world settings filled me with immense pride and satisfaction.</p>
+      <p>The emotional highlight was seeing the tangible impact of my work. Nurses were now efficiently managing patient records, significantly improving their workflow and patient care. Witnessing the practical benefits of my solution was deeply fulfilling, reinforcing my commitment and passion for using technology to solve real-world problems.</p>
+      <p>Training users became more than a task—it transformed into an emotional celebration of shared achievement. Each training session reinforced my personal growth, deepening my empathy, communication skills, and appreciation for user-centric design. Their success became my own, creating a sense of profound fulfillment and emotional resonance.</p>
+      <p>Ultimately, the final deployment and training phase wasn't merely the conclusion of a technical journey—it was a profoundly emotional milestone. It validated my hard work, reinforced my confidence, and profoundly enriched my personal and professional growth. This experience solidified my understanding of technology's true purpose: positively impacting lives and creating meaningful connections.</p>
+    </section>
+  </div>
+  
+  <script>
+    function toggleMenu() {
+      document.querySelector('.menu-btn').classList.toggle('open');
+      document.getElementById('side-menu').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TokonTo - Technical Skills Learned (English)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { 
+      font-family: 'Segoe UI', sans-serif; 
+      background: linear-gradient(135deg, #f3eae1 0%, #e6d3c3 100%);
+      color: #5e4a3d; 
+      overflow-x: hidden; 
+      margin: 0; 
+      padding: 0;
+    }
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 35px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .menu-btn div {
+      width: 100%;
+      height: 4px;
+      background: #7a5c48;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    .menu-btn.open div:nth-child(1) { transform: rotate(-45deg) translate(-8px, 8px); }
+    .menu-btn.open div:nth-child(2) { opacity: 0; }
+    .menu-btn.open div:nth-child(3) { transform: rotate(45deg) translate(-8px, -8px); }
+    nav {
+      position: fixed;
+      top: 0;
+      right: -16.67%;
+      width: 16.67%;
+      height: 100vh;
+      background: rgba(255,250,245,0.7);
+      backdrop-filter: blur(10px);
+      transition: right 0.5s;
+      z-index: 900;
+    }
+    nav.open { right: 0; }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    nav ul li {
+      margin: 20px 0;
+      font-size: 1.2rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #7a5c48;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #5e4a3d; }
+    .container {
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+      backdrop-filter: blur(8px);
+    }
+    h1 { text-align: center; font-size: 3rem; margin-bottom: 40px; border-bottom: 3px solid #7a5c48; padding-bottom: 10px; }
+    h2 { font-size: 2rem; margin-top: 40px; margin-bottom: 20px; border-bottom: 2px solid #7a5c48; padding-bottom: 5px; }
+    p { margin-bottom: 20px; line-height: 1.8; text-align: justify; }
+    .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; animation-delay: 0.5s; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section:hover { background-color: rgba(255,255,255,0.95); transition: background-color 0.3s ease; }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="menu-btn" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+  
+  <!-- Side Navigation -->
+  <nav id="side-menu">
+    <ul>
+      <li><a href="main.html">Main</a></li>
+      <li><a href="life-skills.html">Life Skills</a></li>
+      <li><a href="technical-skills.html">Technical Skills</a></li>
+      <li><a href="timeline.html">Timeline</a></li>
+      <li><a href="challenges.html">Challenges</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Page Content -->
+  <div class="container fade-in">
+    <h1>Technical Skills Learned</h1>
+    
+    <!-- Section 1: Programming Languages & Frameworks -->
+    <section>
+      <h2>1. Programming Languages &amp; Frameworks</h2>
+      <p>Embarking on my journey, I initially chose Django due to its powerful capabilities and structured nature. It was exciting but also incredibly daunting, as mastering Django demanded understanding complex concepts, architectures, and patterns. The learning curve felt steep, often leaving me feeling inadequate and overwhelmed. Yet, each small achievement, from running my first server to successfully rendering data, brought immense emotional satisfaction and motivation.</p>
+      <p>However, practicality soon required me to pivot from Django to PHP. This transition was emotionally challenging—I had invested significant time and energy into learning Django. Starting over felt daunting and disheartening. But as I explored PHP, I quickly discovered its straightforward integration with MariaDB and ease of deployment. This simplicity provided emotional relief, reigniting my passion and enthusiasm for the project.</p>
+      <p>Initially, MongoDB was my choice for database management, attracted by its flexibility and ease of use. But as I deepened my understanding, I recognized the structured nature of my data demanded a more relational approach. The decision to shift from MongoDB to MariaDB wasn't easy; it forced me to abandon familiarity for a completely new database system, plunging me into another intense learning period.</p>
+      <p>Learning MariaDB involved mastering SQL queries, data normalization, and transaction management—skills entirely new to me. Each successful query and efficient database structure felt like an emotional triumph, boosting my confidence immensely. The switch, though initially stressful, proved beneficial, providing stability, scalability, and performance enhancements critical for my project's success.</p>
+      <p>CSS, another vital skill, initially appeared deceptively simple yet soon revealed its complexities. Crafting responsive, user-friendly interfaces required both creativity and precision. There were moments of frustration when layouts broke or styles conflicted, yet resolving each issue provided profound satisfaction. Successfully designing interfaces that users genuinely appreciated made every struggle worthwhile, reinforcing my belief in the importance of thoughtful UI design.</p>
+      <p>My journey through these programming languages and frameworks wasn't just technical—it was deeply emotional. Each language learned and framework mastered shaped my personal and professional growth profoundly, teaching resilience, adaptability, and patience. The process wasn't merely about writing code; it became about understanding technology's deeper purpose—creating meaningful, impactful solutions for real-world problems.</p>
+    </section>
+    
+    <!-- Section 2: Database Management -->
+    <section>
+      <h2>2. Database Management</h2>
+      <p>Learning database management was one of the most intellectually challenging yet rewarding aspects of my project. Initially, databases intimidated me, seeming complex and abstract. The very idea of managing structured data efficiently was daunting, especially when starting from scratch.</p>
+      <p>As I dove into learning SQL, the power and logic behind relational databases fascinated me. Writing my first successful query felt like a significant victory, igniting enthusiasm and motivation to explore further. The ability to retrieve precise data efficiently was emotionally gratifying, reinforcing my confidence in the project.</p>
+      <p>Understanding data relationships required careful thought and meticulous planning. Normalizing data and properly structuring tables were initially challenging concepts to grasp. Errors frequently appeared, causing frustration and self-doubt. Yet, each resolved issue brought profound satisfaction, turning confusion into clarity.</p>
+      <p>Performance optimization soon became critical. Slow queries and database inefficiencies presented significant obstacles, often leaving me feeling stuck and overwhelmed. Tackling these performance issues forced me to become deeply analytical and strategic. Learning indexing, query optimization, and database tuning became emotionally fulfilling as I witnessed tangible improvements in speed and reliability.</p>
+      <p>Implementing backup and recovery mechanisms added another layer of responsibility. The emotional stress of potentially losing data propelled me to master reliable backup methods. Successfully testing recovery procedures provided immense emotional relief and a sense of security.</p>
+      <p>Throughout this process, managing databases wasn't simply a technical task—it was a personal growth journey marked by emotional resilience, patience, and meticulous attention to detail. Mastering database management transformed my approach to problem-solving, providing powerful insights into data integrity, efficiency, and the profound importance of meticulous planning.</p>
+    </section>
+    
+    <!-- Section 3: Full-Stack Development -->
+    <section>
+      <h2>3. Full-Stack Development</h2>
+      <p>Becoming a full-stack developer was both an exhilarating and daunting journey. At first, handling both frontend and backend responsibilities felt overwhelming. Balancing aesthetic appeal, functionality, and backend efficiency required comprehensive thinking and meticulous attention.</p>
+      <p>Initially, backend development posed significant challenges. Building a secure, efficient PHP backend connected to MariaDB was an intense, iterative process. Each successful database connection or resolved logic error felt incredibly rewarding, fueling my determination and passion. Mastering backend development taught me discipline, logical precision, and deep problem-solving abilities.</p>
+      <p>Frontend development offered different yet equally intense challenges. Designing intuitive, responsive user interfaces required creativity, empathy, and patience. CSS layout issues, browser inconsistencies, and responsive design challenges often led to frustrating moments. Yet, each visually appealing, user-friendly interface I crafted provided emotional satisfaction and pride.</p>
+      <p>Implementing authentication systems was particularly demanding. Ensuring secure, user-friendly login processes required careful thought, meticulous attention to detail, and thorough testing. Emotional tension arose from the immense responsibility of protecting user data. Successfully implementing secure login/logout functionality with distinct user roles filled me with pride and reinforced my commitment to quality and security.</p>
+      <p>Integrating frontend and backend components seamlessly was perhaps my most rewarding achievement. Witnessing the different parts of my project work harmoniously provided deep emotional fulfillment, validating the countless hours spent troubleshooting and refining. Full-stack development taught me to appreciate the intricate relationships between user experience, backend logic, and overall system stability.</p>
+      <p>Ultimately, my journey in full-stack development was transformative. It expanded my technical skills, improved my creativity and strategic thinking, and profoundly enhanced my emotional resilience. Each success reinforced my confidence, not just as a developer, but as a capable, resourceful, and determined individual who could tackle complex challenges head-on.</p>
+    </section>
+    
+    <!-- Section 4: Security Practices -->
+    <section>
+      <h2>4. Security Practices</h2>
+      <p>Security became one of my most significant concerns throughout the project, deeply influencing my approach and understanding of development. Initially, security felt intimidating and overwhelming, filled with unknown threats and complexities. The emotional responsibility of protecting user data and ensuring system integrity was profound, at times even daunting.</p>
+      <p>I vividly remember my first encounter with a potential security vulnerability—an SQL injection risk that had slipped unnoticed into my early code. Realizing this oversight filled me with a mixture of anxiety and determination. I quickly immersed myself in learning about secure coding practices, prepared statements, and database sanitization. Resolving that issue brought a deep sense of relief and emotional satisfaction, reinforcing the critical importance of security vigilance.</p>
+      <p>Implementing user authentication was emotionally intense, knowing that a single mistake could compromise sensitive information. Learning about hashing passwords and session management required meticulous attention and rigorous testing. Each successful implementation not only improved my technical confidence but also deepened my emotional commitment to user trust and privacy.</p>
+      <p>Access control became another critical focus. Ensuring that only authorized users had access to certain data involved careful planning, precise coding, and continuous validation. Initially, the responsibility felt overwhelming, often causing sleepless nights of worry. But each successfully implemented access restriction provided reassurance and emotional relief, bolstering my confidence significantly.</p>
+      <p>Ultimately, prioritizing security wasn't merely a technical requirement—it became a deeply personal commitment. The emotional responsibility and profound satisfaction of knowing my project safeguarded user data taught me invaluable lessons about integrity, vigilance, and ethical responsibility. Security practices weren't just about protecting systems—they were about honoring the trust users placed in me, shaping my personal and professional identity profoundly.</p>
+    </section>
+    
+    <!-- Section 5: Software Development Process -->
+    <section>
+      <h2>5. Software Development Process</h2>
+      <p>Engaging deeply with the software development process transformed my understanding of what it truly means to create quality software. Initially, planning, testing, and debugging felt tedious and overwhelming. I underestimated the complexity involved, assuming that coding alone would suffice. Reality quickly taught me otherwise, reshaping my entire approach.</p>
+      <p>Planning became foundational. Creating detailed project roadmaps was challenging yet immensely rewarding. Mapping out milestones and anticipating challenges allowed me to manage my project more effectively and reduce stress. Each well-crafted plan provided emotional security, transforming uncertainty into clear, manageable objectives.</p>
+      <p>Testing was emotionally taxing yet essential. Discovering bugs and functional issues felt frustrating, sometimes demoralizing. But over time, I recognized the value of rigorous testing, appreciating how it significantly improved quality and reliability. Each issue resolved through testing filled me with a deep sense of accomplishment, validating my meticulous efforts.</p>
+      <p>Debugging taught me patience and perseverance. Facing stubborn, elusive issues initially left me feeling helpless. Yet, each resolved problem deepened my confidence and technical ability. Debugging became more than problem-solving—it was an emotional exercise in patience, determination, and resilience.</p>
+      <p>I remember distinctly the satisfaction of deploying a stable, functional build after countless hours of testing and debugging. The emotional relief and pride were overwhelming, profoundly validating my hard work and dedication.</p>
+      <p>Ultimately, mastering the software development process profoundly influenced my personal and professional growth. It taught me invaluable lessons about patience, resilience, meticulous planning, and the emotional rewards of thoroughness. My project journey wasn't just about writing code—it was about thoughtfully creating something reliable, impactful, and genuinely useful.</p>
+    </section>
+    
+    <!-- Section 6: Speech-to-Text Integration -->
+    <section>
+      <h2>6. Speech-to-Text Integration</h2>
+      <p>Implementing speech-to-text functionality was one of the most innovative and rewarding parts of my project. Initially, integrating voice-to-text technology, especially for the Thai language, appeared challenging and intimidating. The complexity of voice recognition and ensuring accuracy for medical records felt overwhelming, raising fears of failure.</p>
+      <p>Yet, my motivation was driven by empathy and a deep desire to improve nurses' workflow. Seeing nurses struggle daily with manual data entry inspired me profoundly. My determination to alleviate their burden motivated countless hours spent researching and experimenting with speech-to-text integration.</p>
+      <p>Implementing this technology involved extensive trial and error. Early attempts were filled with frustrating inaccuracies, leading to emotional moments of doubt and anxiety. Yet, each incremental improvement was emotionally exhilarating, as I saw firsthand the potential positive impact on users’ daily lives.</p>
+      <p>The first successful test with real users was unforgettable. Seeing nurses effortlessly input patient data through speech recognition brought immense emotional joy and satisfaction. Witnessing their excitement and appreciation validated my hard work, making every challenge worthwhile.</p>
+      <p>Integrating speech-to-text didn't just enhance usability—it transformed how I viewed technology’s role in human life. This experience taught me the profound emotional reward of creating technology with a clear, meaningful impact. The process deepened my empathy, resilience, and commitment, profoundly enriching both my technical expertise and emotional understanding of technology’s true purpose.</p>
+    </section>
+    
+    <!-- Section 7: Performance Optimization -->
+    <section>
+      <h2>7. Performance Optimization</h2>
+      <p>Performance optimization became an essential yet emotionally charged part of my journey. Initially, experiencing sluggish loading times and slow queries deeply frustrated me. Each delay or lag felt like a personal failure, causing anxiety about the project's overall viability and user experience.</p>
+      <p>Addressing performance issues required meticulous analysis and disciplined optimization efforts. Initially, optimizing SQL queries felt complex and overwhelming. Yet, with each refined query, seeing tangible improvements in speed and responsiveness provided emotional validation, fueling my enthusiasm and confidence.</p>
+      <p>Minimizing CSS and JavaScript loads also significantly enhanced performance. Tackling frontend optimization was a challenge in itself, requiring precise attention to detail and creativity. Initially, these adjustments seemed minor, but witnessing noticeable improvements in user experience was profoundly rewarding. Users noticing and appreciating faster loading times further validated my efforts emotionally.</p>
+      <p>Performance optimization wasn't merely technical—it was an emotional journey through persistence, precision, and dedication. Each improvement reinforced my commitment to quality and excellence, profoundly shaping my professional identity and emotional resilience. The deep satisfaction of witnessing a smooth, responsive user experience made all the painstaking efforts genuinely fulfilling.</p>
+    </section>
+    
+    <!-- Section 8: Hosting & Deployment -->
+    <section>
+      <h2>8. Hosting &amp; Deployment</h2>
+      <p>Hosting and deployment marked the culmination of my technical journey, bringing both intense challenges and profound satisfaction. Initially, the idea of deployment felt intimidating, with fears of downtime, technical issues, or potential failures causing significant anxiety.</p>
+      <p>Using GitHub Pages for frontend hosting presented a gentle introduction to deployment. Despite early confusion over domain configuration and file management, successfully hosting static content provided immediate emotional gratification, demonstrating tangible progress.</p>
+      <p>Deploying the backend on a cloud server brought greater complexity. Managing server stability, security, and uptime required vigilance and meticulous attention to detail. Early experiences of server downtime were emotionally stressful, reinforcing my determination to master deployment practices and disaster recovery.</p>
+      <p>Implementing robust deployment processes, including automatic updates and secure configuration, was deeply rewarding. Witnessing my application running smoothly, reliably accessible to users, filled me with pride and emotional fulfillment. Version control with Git further enhanced this experience, providing security and collaborative ease, reducing anxiety about losing work or reverting mistakes.</p>
+      <p>Each successful deployment and stable hosting reinforced my technical confidence and emotional resilience profoundly. The challenges overcame taught me invaluable lessons in reliability, scalability, and responsibility. Ultimately, mastering hosting and deployment wasn't merely technical—it was a deeply emotional victory, marking my growth into a confident, responsible, and skilled developer ready to tackle future challenges.</p>
+    </section>
+  </div>
+  
+  <script>
+    function toggleMenu() {
+      document.querySelector('.menu-btn').classList.toggle('open');
+      document.getElementById('side-menu').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

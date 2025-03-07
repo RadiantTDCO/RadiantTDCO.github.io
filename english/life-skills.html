@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TokonTo - Life Skills Learned (English)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdf8f3;
+      color: #5e4a3d;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    /* Header with Clickable, Curved Logo and Hamburger Menu */
+    header {
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo a {
+      display: inline-block;
+    }
+    .logo img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 15px;
+    }
+    /* Hamburger Menu with Transformation into an X */
+    .menu-btn {
+      width: 35px;
+      height: 30px;
+      position: relative;
+      cursor: pointer;
+      z-index: 1100;
+      /* Using flex layout is optional if we position bars absolutely */
+    }
+    .menu-btn div {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background: #7a5c48;
+      transition: transform 0.4s, opacity 0.4s;
+    }
+    .menu-btn div:nth-child(1) {
+      top: 0;
+    }
+    .menu-btn div:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .menu-btn div:nth-child(3) {
+      bottom: 0;
+    }
+    /* When toggled, transform into an X */
+    .menu-btn.open div:nth-child(1) {
+      transform: rotate(45deg);
+      top: 50%;
+    }
+    .menu-btn.open div:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-btn.open div:nth-child(3) {
+      transform: rotate(-45deg);
+      bottom: auto;
+      top: 50%;
+    }
+    /* Side Navigation (Glassmorphism) */
+    nav.side-nav {
+      position: fixed;
+      top: 0;
+      right: -16.67%;
+      width: 16.67%;
+      height: 100vh;
+      background: rgba(255,250,245,0.7);
+      backdrop-filter: blur(10px);
+      transition: right 0.5s;
+      z-index: 1050;
+    }
+    nav.side-nav.open {
+      right: 0;
+    }
+    nav.side-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    nav.side-nav ul li {
+      margin: 20px 0;
+      font-size: 1.2rem;
+    }
+    nav.side-nav ul li a {
+      text-decoration: none;
+      color: #7a5c48;
+      transition: color 0.3s;
+    }
+    nav.side-nav ul li a:hover {
+      color: #5e4a3d;
+    }
+    /* Hero Section */
+    .hero {
+      background: url("file:///C:/Tate/KM/main-backgroud.png") center/cover no-repeat;
+      position: relative;
+      padding: 100px 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    }
+    /* CTA Button */
+    .cta-btn {
+      display: inline-block;
+      background-color: #7a5c48;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .cta-btn:hover {
+      background-color: #5e4a3d;
+    }
+    /* Article Container */
+    .article-container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 30px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .article-container h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      border-bottom: 3px solid #7a5c48;
+      padding-bottom: 10px;
+    }
+    .article-container h2 {
+      font-size: 2rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #7a5c48;
+      padding-bottom: 10px;
+    }
+    .article-container p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    /* Fade-In Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.5s;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Footer */
+    footer {
+      background: #ffffff;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #7a5c48;
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Clickable Logo and Hamburger Menu -->
+  <header>
+    <div class="logo">
+      <a href="main.html">
+        <img src="file:///C:/Tate/KM/logo.png" alt="Pamela Wilson" />
+      </a>
+    </div>
+    <div class="menu-btn" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <!-- Side Navigation -->
+  <nav id="side-menu" class="side-nav">
+    <ul>
+      <li><a href="main.html">Main</a></li>
+      <li><a href="life-skills.html">Life Skills</a></li>
+      <li><a href="technical-skills.html">Technical Skills</a></li>
+      <li><a href="timeline.html">Timeline</a></li>
+      <li><a href="challenges.html">Challenges</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero fade-in">
+    <div class="hero-content">
+      <h1>Life Skills Learned</h1>
+      <p>Discover the transformative techniques I used to overcome challenges in time management, emotional resilience, and adaptability. Each lesson became a stepping stone toward personal growth.</p>
+      <a href="https://panyaprateep.ac.th" class="cta-btn">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <div class="article-container fade-in">
+    <h1>Life Skills Learned</h1>
+    
+    <!-- Section 1: Time Management -->
+    <section>
+      <h2>1. Time Management</h2>
+      <p>Time was my most precious resource. When my project began, I quickly realized how constrained I was by limited computer access. Each session was a race against the clock, heightening my awareness that every minute mattered. Initially, the stress was overwhelming; the anxiety of trying to cram hours of productivity into short, restricted windows of computer access often left me frustrated and overwhelmed. Yet, over time, this limitation became my greatest teacher.</p>
+      <p>I vividly recall one afternoon early in my journey when I wasted a precious session distracted by minor details, leaving critical tasks untouched. The regret was profound, a powerful emotional moment that reshaped my mindset permanently. From that day on, prioritization became my mantra. I meticulously listed tasks by impact, urgency, and necessity, dedicating myself fully to high-priority objectives first. This wasn’t just an organizational skill—it was an emotional shift toward embracing discipline and intentionality in everything I did.</p>
+      <p>Task batching soon emerged as my next critical strategy. Rather than bouncing erratically from one task to another, I grouped similar activities together, leveraging momentum and reducing mental fatigue. I learned firsthand that completing related tasks in succession created a rhythm and flow, making each session feel smoother and more productive. There was an intense emotional satisfaction in seeing my productivity surge as I found my rhythm, reinforcing my belief in this approach.</p>
+      <p>Scheduling became essential, almost sacred. Each coding session was carefully mapped out ahead of time, removing the guesswork and stress of what to tackle first when I finally got computer access. Planning my sessions meticulously gave me emotional relief, reducing anxiety and improving my overall mental health during the challenging journey. The act of planning itself became therapeutic; each schedule represented hope, a detailed blueprint of progress toward my goal.</p>
+      <p>I was no longer managing time—I was deeply respecting it. The limited access didn't restrict my growth; instead, it forced me to rise above procrastination. I didn't have the luxury to delay tasks or give in to distractions. I faced procrastination head-on, seeing it clearly for the harmful habit it was. Emotional discipline became crucial. I often reminded myself of the intense regret I felt during wasted sessions, fueling a determination to remain laser-focused whenever I had access.</p>
+      <p>There were setbacks, of course—moments when tasks took longer than anticipated or unexpected issues arose. But rather than succumbing to frustration, these moments taught me resilience and adaptability. They reinforced the importance of maintaining flexibility within structured plans. Time management wasn't just about rigid schedules; it was about gracefully adapting to inevitable disruptions without losing sight of my goals.</p>
+      <p>Reflecting on this now, I see clearly that my struggles with time transformed into an emotional journey of self-discovery. Time management became more than just productivity; it became a reflection of personal integrity, responsibility, and self-respect. The limitations that initially seemed like barriers gradually transformed into powerful motivators. Each successful session reinforced my confidence, creating an empowering cycle of growth and achievement.</p>
+      <p>This intense focus on time management didn't just change my approach to projects—it changed me fundamentally. I carried these lessons into every aspect of my life, improving my academic performance, relationships, and overall personal discipline. I learned that efficiency isn’t about cramming more into less time; it’s about thoughtfully using each moment with intention and purpose.</p>
+      <p>Ultimately, mastering time management taught me invaluable lessons about discipline, focus, and emotional resilience. I discovered the profound joy and satisfaction that comes from true productivity—not the hurried rush of completing tasks, but the deep, fulfilling sense of making meaningful progress toward something I genuinely cared about.</p>
+    </section>
+    
+    <!-- Section 2: Emotional Management -->
+    <section>
+      <h2>2. Emotional Management</h2>
+      <p>Navigating my project was not just technically challenging—it was an emotional rollercoaster filled with highs and lows. Frustration became a regular visitor, especially when debugging complex issues or facing repeated system crashes. Initially, these setbacks would leave me feeling helpless and overwhelmed, draining my motivation and clouding my judgment.</p>
+      <p>Over time, I learned to approach these challenges differently. Instead of allowing frustration to control my reactions, I began consciously practicing emotional regulation. Deep breaths became my anchor, grounding me when stress and anxiety threatened to take over. I realized that frustration was inevitable—but my response to it was entirely within my control.</p>
+      <p>The pressure of balancing schoolwork, personal restrictions, and looming project deadlines felt unbearable at times. Yet, these intense moments taught me the importance of emotional intelligence and resilience. Each stressful situation became an opportunity to learn about myself—to explore how I reacted under pressure and to develop healthier coping strategies.</p>
+      <p>I remember one particular evening when a critical bug threatened to derail weeks of hard work. The immediate panic was intense, but rather than succumbing to it, I forced myself to step away momentarily, clear my head, and approach the problem calmly. This pause, though brief, provided clarity and perspective. Resolving that issue didn't just fix my code—it reinforced my belief in the power of emotional maturity and composure.</p>
+      <p>Developing resilience meant understanding that setbacks were not personal failures but necessary stepping stones toward growth. Embracing this mindset transformed my relationship with failure. Each difficulty became less intimidating, more like a puzzle to solve rather than an obstacle to fear. My emotional resilience didn't just help me survive stressful periods—it allowed me to thrive, even in adversity.</p>
+      <p>Through this process, I discovered the immense strength within myself. Emotional management became more than handling stress—it became about cultivating inner peace, confidence, and compassion. My project journey, with all its emotional ups and downs, fundamentally changed how I perceive challenges, teaching me to respond with grace, patience, and wisdom.</p>
+    </section>
+    
+    <!-- Section 3: Learning and Adaptability -->
+    <section>
+      <h2>3. Learning and Adaptability</h2>
+      <p>My journey was defined by constant learning and relentless adaptability. Entering the project, I faced the daunting task of mastering technologies like PHP, MariaDB, and CSS entirely on my own. Each day brought new challenges and unfamiliar territories, often leaving me feeling uncertain and overwhelmed.</p>
+      <p>Initially, the sheer scope of learning seemed insurmountable. But I quickly discovered the power of curiosity and persistence. Online tutorials, documentation, and countless trials and errors became my guides. There was profound emotional satisfaction in turning confusion into clarity, each new understanding fueling my confidence and enthusiasm.</p>
+      <p>Adapting to change was perhaps my greatest challenge. Midway through the project, I had to pivot from Django and MongoDB to PHP and MariaDB due to practical considerations. This decision wasn't easy; it required abandoning familiar paths and diving into unknown waters. The emotional tension during this transition was significant—I grappled with doubt, anxiety, and fear of failure.</p>
+      <p>Yet, embracing adaptability taught me a crucial lesson: flexibility isn't weakness but strength. It revealed my capacity to adjust to unexpected changes, turning apparent setbacks into new opportunities. Limited computer access further tested my adaptability, pushing me to become resourceful, strategic, and intentional in every session.</p>
+      <p>Overcoming these limitations was an emotional victory. It reminded me that adaptability isn't merely about technical adjustments; it's a reflection of inner resilience, creativity, and open-mindedness. Each challenge I faced and overcame reinforced my belief in my ability to learn, adapt, and grow, turning fear into courage and doubt into determination.</p>
+      <p>This ongoing process of learning and adaptation didn't merely equip me with technical skills—it profoundly transformed my mindset. I learned to view uncertainty not as something to fear, but as an exciting invitation to grow. Each new skill I acquired was a testament to my perseverance, reshaping my relationship with challenges and deeply enriching my journey.</p>
+    </section>
+    
+    <!-- Section 4: Communication and Collaboration -->
+    <section>
+      <h2>4. Communication and Collaboration</h2>
+      <p>Effective communication became the heart of my project's success. Initially, I underestimated the power of clear communication and collaboration, believing technical skills alone would carry me forward. But interactions with nurses, teachers, and students soon reshaped my perspective dramatically.</p>
+      <p>I remember vividly my first user feedback session. Presenting technical concepts in a language accessible to non-tech users was surprisingly challenging. Misunderstandings occurred, and I saw firsthand the frustration caused by poor communication. This experience was emotionally eye-opening and humbling. It highlighted the immense gap between technical understanding and practical usability.</p>
+      <p>From then on, active listening became my priority. I learned to listen deeply, not just to what users said but to what they truly needed. Each interaction taught me empathy, allowing me to see problems through their eyes. These conversations weren't merely exchanges of information—they became emotional connections, building trust and understanding.</p>
+      <p>Simplifying explanations required patience and creativity. Finding analogies, clear examples, and simple terms forced me to become more thoughtful and reflective in my communication style. The emotional reward of seeing users genuinely understand and appreciate the solutions I presented was profound and motivating.</p>
+      <p>Receiving feedback was another significant area of growth. Initially, criticism felt deeply personal, often sparking defensiveness. But over time, I learned to see feedback as a gift, a tool for improvement. Embracing this mindset transformed my interactions, fostering a collaborative environment where feedback became a bridge to mutual understanding and continuous improvement.</p>
+      <p>Collaboration wasn't merely about exchanging ideas—it became about building genuine partnerships. I developed an appreciation for the power of teamwork and the emotional intelligence required to maintain healthy, productive relationships. Each successful interaction reinforced the value of clear, empathetic communication, making it one of my most cherished lessons.</p>
+      <p>Ultimately, my growth in communication and collaboration taught me the profound truth that technology’s purpose extends beyond functionality—it’s about deeply connecting with people and positively impacting their lives.</p>
+    </section>
+    
+    <!-- Section 5: Responsibility and Accountability -->
+    <section>
+      <h2>5. Responsibility and Accountability</h2>
+      <p>Responsibility became the foundation of my personal and professional growth throughout this project. Initially, the weight of commitments felt overwhelming, especially under strict deadlines and limited resources. The emotional burden of accountability sometimes felt crushing, knowing that the success or failure of my project rested entirely on my shoulders.</p>
+      <p>Early on, I faced a critical moment when I realized a significant deadline was approaching faster than expected. I felt a powerful mixture of anxiety and urgency, recognizing clearly that my reputation and integrity were on the line. Instead of panicking, I channeled this energy into focused, structured action, creating detailed plans and following through rigorously. Meeting that crucial deadline felt exhilarating—not just as a success, but as proof of my growing maturity and reliability.</p>
+      <p>Integrity became an essential value deeply embedded within my workflow. Whenever I encountered setbacks, mistakes, or shortcomings, I committed to openly acknowledging and learning from them. Admitting mistakes wasn't easy—it required humility and courage—but each honest reflection strengthened my self-respect and reinforced the trust others placed in me. These moments transformed setbacks into powerful learning opportunities.</p>
+      <p>Holding myself accountable meant facing difficult truths and accepting responsibility without excuses. When challenges arose, I refused to shift blame or hide from consequences. This transparent approach not only resolved problems quickly but also deepened my self-awareness and self-confidence.</p>
+      <p>The consistent dedication to meeting deadlines and keeping promises reshaped my identity profoundly. Responsibility evolved from a daunting obligation into a deeply fulfilling commitment. Each fulfilled promise reinforced my credibility and deepened the trust others had in me, providing emotional validation and confidence to handle future responsibilities.</p>
+      <p>This journey taught me that true responsibility is more than simply fulfilling tasks—it's a commitment to personal excellence, integrity, and continual self-improvement. The emotional pride and personal satisfaction derived from fulfilling my responsibilities became an integral part of who I am, shaping my character profoundly.</p>
+    </section>
+    
+    <!-- Section 6: Problem-Solving and Decision-Making -->
+    <section>
+      <h2>6. Problem-Solving and Decision-Making</h2>
+      <p>Problem-solving became more than just a skill—it evolved into a deeply personal and emotional journey. Initially, the seemingly endless technical problems—errors, logic bugs, and performance issues—felt insurmountable. Each issue brought moments of intense frustration and anxiety, often making me question my abilities and the viability of my project.</p>
+      <p>Over time, however, I learned to approach these challenges methodically and patiently. Debugging taught me persistence; each problem required a careful, logical analysis combined with creative thinking. I vividly remember spending hours tracking down an elusive logic error, feeling hopeless at moments yet pushing through with determination. When I finally discovered the issue, the emotional relief and joy were overwhelming. Such moments reinforced my belief in the power of perseverance and patience.</p>
+      <p>Making informed decisions about technology was another profound challenge. I often faced moments of uncertainty, torn between different solutions or methods. These decisions carried heavy emotional weight, as each choice significantly impacted the project's direction and success. To navigate these moments, I learned to gather thorough information, carefully weigh options, and trust my judgment. This disciplined approach reduced anxiety and boosted my confidence in decision-making.</p>
+      <p>Iterative improvement became a key aspect of my problem-solving process. Instead of viewing problems as roadblocks, I started seeing them as opportunities for growth and refinement. Each iteration was emotionally rewarding, demonstrating tangible progress and improvement. This continuous cycle of solving problems, evaluating outcomes, and refining solutions not only improved my project but deeply enhanced my critical thinking and emotional resilience.</p>
+      <p>Ultimately, the process of problem-solving and decision-making taught me invaluable lessons about resilience, determination, and self-confidence. Each challenge conquered reinforced my emotional strength and sharpened my intellectual abilities, profoundly shaping my identity and approach to life's obstacles.</p>
+    </section>
+    
+    <!-- Section 7: Adaptability and Overcoming Adversity -->
+    <section>
+      <h2>7. Adaptability and Overcoming Adversity</h2>
+      <p>Adaptability was not simply a skill—it became a testament to my resilience and inner strength. Throughout the project, adversity was a constant companion. My restricted computer access, initially viewed as a severe limitation, became a significant test of my adaptability. At first, each restriction felt like a personal defeat, causing frustration and anxiety about whether I could realistically achieve my goals.</p>
+      <p>However, gradually, my mindset shifted. I began viewing each restriction as a unique challenge, an opportunity to exercise creativity and strategic thinking. Planning every coding session meticulously became essential. Rather than being held back by limited resources, I became adept at maximizing every available moment, crafting careful strategies and preparations beforehand. These constraints became my greatest source of innovation, forcing me to discover untapped potential within myself.</p>
+      <p>Failure, another constant presence, initially threatened my motivation and confidence. Each setback was emotionally painful, and there were moments when giving up seemed easier than continuing. Yet, over time, I learned to transform failures into invaluable lessons. Each mistake or challenge became a stepping stone, providing clarity and insight that propelled my project forward with renewed vigor.</p>
+      <p>Maintaining motivation amidst these adversities became a deeply emotional and personal struggle. When overwhelmed, I reminded myself of why I started the project, reconnecting with my core purpose. Reflecting on my initial motivations provided emotional strength and determination, reigniting my passion even during the darkest times.</p>
+      <p>Adaptability thus became more than coping—it was thriving despite adversity. My experiences taught me the powerful truth that limitations and setbacks aren't barriers—they’re opportunities to innovate, persevere, and grow. Embracing adaptability not only allowed me to complete my project but fundamentally reshaped my character, teaching me that true strength lies in the ability to adapt gracefully and persistently in the face of adversity.</p>
+    </section>
+    
+    <!-- Section 8: Self-Discipline and Focus -->
+    <section>
+      <h2>8. Self-Discipline and Focus</h2>
+      <p>Self-discipline became the cornerstone of my personal and professional journey. Initially, developing discipline was incredibly challenging, especially with the constant temptation to give in to distractions or procrastination. Each distraction was a test of my resolve, often causing frustration and regret.</p>
+      <p>As my project progressed, the limited computer access forced me to recognize discipline not merely as beneficial, but absolutely critical. Each session demanded absolute focus; I couldn't afford the luxury of distractions. Gradually, discipline became less of a burden and more of a meaningful commitment. I created specific routines and environments conducive to deep concentration, eliminating distractions proactively.</p>
+      <p>Consistency was difficult at first. There were days when motivation waned, and discipline felt exhausting. But over time, each disciplined session reinforced my ability to persist, creating an empowering habit. These disciplined habits eventually transformed into a powerful work ethic, deeply embedded in my character. The emotional reward of consistently accomplishing focused work strengthened my resolve, proving that discipline was not limiting but liberating.</p>
+      <p>Setting personal goals became crucial for maintaining discipline and focus. Breaking down the daunting project into smaller, manageable milestones provided clear, achievable targets. Achieving these small goals created emotional momentum, making larger objectives feel attainable. Each milestone reached was emotionally fulfilling, reinforcing my commitment and strengthening my discipline further.</p>
+      <p>Ultimately, self-discipline became more than a project requirement—it was a profound personal victory. It taught me the importance of sacrifice, intentionality, and commitment. My journey toward greater discipline deeply shaped my character, revealing a level of strength, determination, and clarity that I previously didn't know existed. The experience proved that true success isn't achieved through sporadic efforts but through consistent, disciplined action.</p>
+    </section>
+    
+    <!-- Conclusion -->
+    <section>
+      <h2>Conclusion</h2>
+      <p>This project was far more than a technical journey—it was a deeply personal and transformative experience filled with invaluable life lessons. I emerged from this process stronger, wiser, and profoundly self-aware. Each challenge faced and overcome taught me not just how to code, but how to live with integrity, resilience, and purpose. My journey taught me that true achievement lies not only in technical accomplishments but in the personal growth, emotional depth, and meaningful connections built along the way.</p>
+    </section>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p>© All rights reserved | TokonTo</p>
+    </div>
+  </footer>
+  
+  <script>
+    function toggleMenu() {
+      document.querySelector('.menu-btn').classList.toggle('open');
+      document.getElementById('side-menu').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

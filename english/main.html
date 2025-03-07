@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TokonTo - Main (English)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #e6d3c3, #f3eae1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.5);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    /* Smooth Fade-In Animation */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.2s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    /* Hamburger Menu */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 35px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .menu-btn div {
+      width: 100%;
+      height: 4px;
+      background: #7a5c48;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    .menu-btn.open div:nth-child(1) {
+      transform: rotate(-45deg) translate(-8px, 8px);
+    }
+    .menu-btn.open div:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-btn.open div:nth-child(3) {
+      transform: rotate(45deg) translate(-8px, -8px);
+    }
+    /* Side Navigation (Glassmorphism) */
+    nav {
+      position: fixed;
+      top: 0;
+      right: -16.67%; /* 1/6 of the screen */
+      width: 16.67%;
+      height: 100vh;
+      background: rgba(255, 250, 245, 0.7);
+      backdrop-filter: blur(10px);
+      transition: right 0.5s;
+      z-index: 900;
+    }
+    nav.open {
+      right: 0;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    nav ul li {
+      margin: 20px 0;
+      font-size: 1.2rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #7a5c48;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #5e4a3d;
+    }
+  </style>
+</head>
+<body class="bg-[#f3eae1] text-[#5e4a3d]">
+  <!-- Hamburger Menu -->
+  <div class="menu-btn" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Side Navigation -->
+  <nav id="side-menu">
+    <ul>
+      <li><a href="main.html">Main</a></li>
+      <li><a href="life-skills.html">Life Skills</a></li>
+      <li><a href="technical-skills.html">Technical Skills</a></li>
+      <li><a href="timeline.html">Timeline</a></li>
+      <li><a href="challenges.html">Challenges</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section with Intro -->
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Welcome to TokonTo</h1>
+      <p class="max-w-2xl mx-auto text-lg md:text-xl mb-4">
+        Welcome to the TokonTo subject page from Panyaprateep School.
+      </p>
+      <p class="max-w-2xl mx-auto text-base md:text-lg mb-4">
+        Our school isn’t just about getting good grades; it’s about learning things that truly matter in life. TokonTo is a unique subject where we explore who we are, prepare for the future, and discover our passions.
+      </p>
+      <p class="max-w-2xl mx-auto text-base md:text-lg mb-4">
+        In Grade 9, we face important decisions—choosing the right subjects for next year and envisioning our future careers. TokonTo helps us navigate these challenges by introducing us to various career paths, revealing our strengths, and igniting our curiosity.
+      </p>
+      <p class="max-w-2xl mx-auto text-base md:text-lg">
+        This website is part of my knowledge management project, designed to showcase the transformative experiences in TokonTo. Enjoy exploring the journey, and let it inspire you to grow and discover new possibilities!
+      </p>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.menu-btn').classList.toggle('open');
+      document.getElementById('side-menu').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
